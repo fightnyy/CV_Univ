@@ -22,31 +22,6 @@ def matchKeypoints(keyPoints1, keyPoints2, descriptors1, descriptors2):
     matcher = cv.FlannBasedMatcher(flann_params, {})  # bug : need to pass empty dict (#1329)
     raw_matches = matcher.knnMatch(descriptors1, descriptors2, k = 2) #2
 
-    # print("type of raw_matches : ",type(raw_matches))
-    # print("len_of_raw_matches[0] : ",len(raw_matches))
-    # print("type of raw_matches : ",type(raw_matches[0]))
-    # print("len_of_raw_matches[0] : ",len(raw_matches[0]))
-    # for i, m in enumerate(raw_matches):
-    #     print(f"matches's {i+1} index :",m[i])
-
-
-    bf = cv.BFMatcher(cv.NORM_HAMMING, crossCheck=True)
-
-    matches1 = bf.match(descriptors1,descriptors2)
-    # print("type of matches : ",type(matches[0].distance))
-    # print("len_of_matches : ",len(matches))
-    # print("len_of_matches[0] : ",len(matches[0]))
-    # for i, m in enumerate(matches):
-    #     print(f"matches's {i+1} index :",m[i])
-    
-
-
-
-# matches = bf.match(des1,des2)
-
-# matches = sorted(matches, key = lambda x:x.distance)
-# img3 = cv.drawMatches(img1,kp1,img2,kp2,matches[:40],None,flags=10)
-# plt.imshow(img3),plt.show()
 
     matches = []
     drawmatching=[]
